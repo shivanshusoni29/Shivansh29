@@ -1,486 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shivanshu Soni Portfolio</title>
+    <title>PortFolio Web site using HTML & CSS </title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-   <style>
-    /* Reset some default styles */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
 
-    body {
-        font-family: 'Poppins', sans-serif;
-    }
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500;600;700;900&display=swap');
 
-    /* Navbar */
-    .navbar {
-        background: #333;
-        color: #fff;
-        position: fixed;
-        width: 100%;
-        z-index: 100;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
 
-    .navbar .max-width {
-        max-width: 1200px;
-        padding: 0 20px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 80px;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    .navbar .logo {
-        font-size: 24px;
-        font-weight: 600;
-    }
+body {
+    opacity: 0;
+    transition: opacity 3s;
+}
 
-    .navbar .menu {
-        list-style: none;
-        display: flex;
-    }
+.hero {
+    width: 100%;
+    height: 100vh;
 
-    .navbar .menu li {
-        margin: 0 20px;
-    }
+}
 
-    .navbar .menu li a {
-        text-decoration: none;
-        color: #fff;
-    }
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 200px;
+}
 
-    .navbar .menu-btn i {
-        color: #fff;
-        font-size: 22px;
-        cursor: pointer;
-        display: none;
-    }
+.nav .link ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+}
 
-    /* Home Section */
-    .home {
-        background: url('background.jpg') no-repeat center;
-        background-size: cover;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-    }
+.nav .link ul a {
+    text-decoration: none;
+    color: #2a2a2a;
+    font-weight: 600;
+    transition: all 2000ms ease-in-out;
+}
 
-    .home-content {
-        text-align: center;
-    }
+ul a .active {
+    color: #f4637b;
+}
 
-    .home h1 {
-        font-size: 40px;
-        font-weight: 700;
-        margin-bottom: 10px;
-    }
+.nav .link ul a:hover {
+    color: #f4637b;
+}
 
-    .home h1 span {
-        color: #3498db;
-    }
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6rem;
+    margin-top: 70px;
 
-    .home .subtitle {
-        font-size: 20px;
-        margin: 20px 0;
-    }
+}
 
-    .home .btn {
-        display: inline-block;
-        background: #3498db;
-        color: #fff;
-        padding: 10px 30px;
-        margin-top: 20px;
-        text-decoration: none;
-        border-radius: 4px;
-    }
+.main .men {
+    width: 400px;
+    transition: all 2000ms ease;
+    cursor: pointer;
+    overflow: hidden;  
+    border-radius: 50%; 
+}
 
-    /* About Section */
-    .about {
-        padding: 80px 0;
-    }
+.main .men img {
+    width: 100%;
+    height: auto;
+}
 
-    .about .title {
-        font-size: 24px;
-        font-weight: 600;
-    }
+.main .men:hover {
+    transform: scale(1.3);
+}
 
-    .about-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 40px;
-    }
+.main .main-detil {
+    text-align: center;
+    color: #2a2a2a;
+}
 
-    .about .left img {
-        width: 100%;
-    }
+.main .main-detil h1 {
+    font-size: 50px;
 
-    .about .right {
-        flex: 1;
-        margin-left: 30px;
-    }
+}
 
-    .about h3 {
-        font-size: 30px;
-        font-weight: 700;
-    }
+.main .main-detil h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
 
-    .about .subtitle {
-        font-size: 20px;
-        margin: 20px 0;
-    }
+.main .btn button {
+    padding: 8px 20px;
+    background: transparent;
+    border-radius: 30px;
+    border: 1px solid #2a2a2a;
+    margin-right: 1rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
 
-    .about p {
-        font-size: 16px;
-        margin-top: 20px;
-    }
+.main .btn .btn-2 {
+    padding: 8px 30px;
+    background: #2a2a2a;
+    color: #fff;
+    border: none;
+    outline: none;
+    transition: all 2000ms ease-in-out;
 
-    .about .btn {
-        display: inline-block;
-        background: #3498db;
-        color: #fff;
-        padding: 10px 30px;
-        margin-top: 20px;
-        text-decoration: none;
-        border-radius: 4px;
-    }
+}
 
-    /* Skills Section */
-    .skills {
-        padding: 80px 0;
-    }
+.main .btn .btn-2:hover {
+    background: #f4637b;
+    transform: scale(1.1);
+}
 
-    .skills .title {
-        font-size: 24px;
-        font-weight: 600;
-    }
+.social i {
+    color: #2a2a2a;
+    font-size: 40px;
+    margin: 0px 14px;
+    transition: all 2000ms ease-in-out;
+    cursor: pointer;
+}
 
-    .skills-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 40px;
-    }
+.social i:hover {
+    color: #f4637b;
+}
 
-    .skills .column {
-        flex: 1;
-        margin-right: 30px;
-    }
+.sub-btn a{
+    position: absolute;
+    bottom: 60px;
+    right: 50px;
+    padding: 10px 20px;
+    background: red;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 6px;
+}
 
-    .skills h3 {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
+/* Apply CSS styles to project images */
+.project-card img {
+    max-width: 20%; 
+    border: 1px solid #ddd;
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    margin-bottom: 10px;
+    transition: all 2000ms ease;
+}
 
-    .skills ul {
-        list-style: none;
-    }
+.project-card img:hover {
+    transform: scale(1.05);
+}
 
-    .skills ul li {
-        font-size: 16px;
-        margin-bottom: 10px;
-    }
-
-    /* Projects Section */
-    .projects {
-        padding: 80px 0;
-    }
-
-    .projects .title {
-        font-size: 24px;
-        font-weight: 600;
-    }
-
-    .carousel {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .card {
-        flex: 1;
-        margin-right: 20px;
-    }
-
-    .card .box {
-        position: relative;
-    }
-
-    .card img {
-        width: 100%;
-    }
-
-    .card p {
-        position: absolute;
-        bottom: 0;
-        background: #3498db;
-        color: #fff;
-        font-size: 16px;
-        padding: 10px;
-        width: 100%;
-        text-align: center;
-    }
-
-    /* Contact Section */
-    .contact {
-        padding: 80px 0;
-    }
-
-    .contact .title {
-        font-size: 24px;
-        font-weight: 600;
-    }
-
-    .contact-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-top: 40px;
-    }
-
-    .contact .column {
-        flex: 1;
-        margin-right: 30px;
-    }
-
-    .contact .left {
-        position: relative;
-    }
-
-    .contact .left .icons {
-        display: flex;
-        margin-top: 20px;
-    }
-
-    .contact .left .row {
-        align-items: center;
-        margin: 20px 0;
-    }
-
-    .contact .left i {
-        font-size: 24px;
-        background: #3498db;
-        color: #fff;
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .contact .left .info {
-        margin-left: 20px;
-    }
-
-    .contact .left .head {
-        font-size: 18px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
-
-    .contact .left .sub-title {
-        font-size: 16px;
-        color: #777;
-    }
-
-    .contact .right {
-        flex: 1;
-    }
-
-    .contact .right .text {
-        font-size: 24px;
-        font-weight: 600;
-        margin-bottom: 10px;
-    }
-
-    .contact .right form {
-        background: #f4f7fb;
-        overflow: hidden;
-        padding: 20px;
-        border-radius: 4px;
-        box-shadow: 0 2px 5px #ccc;
-    }
-
-    .contact .right .fields {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .contact .right .fields .field {
-        flex: 1;
-        margin-bottom: 10px;
-    }
-
-
-   </style>
-
+    </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="max-width">
+
+<body onload="document.body.style.opacity='1'">
+    <div class="hero">
+        <div class="nav">
             <div class="logo">
-                <a href="#">Portfolio</a>
+                <h2>My Portfolio</h2>
             </div>
-            <ul class="menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars"></i>
+            <div class="link">
+                <ul>
+                    <li><a href="#" class="active">About</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Experience</a></li>
+                    <li><a href="#projects">Project</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
             </div>
         </div>
-    </nav>
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="max-width">
-            <div class="home-content">
-                <h1>Hello <span>👋</span>, I'm Shivanshu Soni</h1>
-                <p class="subtitle">Frontend Developer</p>
-                <a href="#contact" class="btn">Contact Me</a>
-            </div>
-        </div>
-    </section>
+        <div class="main">
+            <img src="01.jpg" alt="men" class="men">
+            <div class="main-detil">
+                <p>Hello i'm</p>
+                <h1>Shivanshu Soni</h1>
+                <h4>Frontend Developer</h4>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="max-width">
-            <h2 class="title">About Me</h2>
-            <div class="about-content">
-                <div class="left">
-                    <img src="./Shivanshu Soni.jpg" alt="Shivanshu Soni">
+                <div class="btn">
+                    <button type="submit">Download CV</button>
+                    <button type="submit" class="btn-2">Hire Me</button>
                 </div>
-                <div class="right">
-                    <h3>Hi, I'm Shivanshu Soni</h3>
-                    <p class="subtitle">Self-taught React.js Developer</p>
-                    <p>
-                        I'm a passionate self-taught React.js developer with a goal to build responsive and user-friendly websites.
-                    </p>
-                    <a href="#contact" class="btn">Contact Me</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section class="skills" id="skills">
-        <div class="max-width">
-            <h2 class="title">My Skills</h2>
-            <div class="skills-content">
-                <div class="column">
-                    <h3>Creative Skills & Experiences</h3>
-                    <p>
-                        I specialize in React.js development and have experience with various web development technologies.
-                    </p>
-                </div>
-                <div class="column">
-                    <h3>Skills Set</h3>
-                    <ul>
-                        <li>React.js</li>
-                        <li>JavaScript</li>
-                        <li>HTML5 & CSS3</li>
-                        <li>Bootstrap</li>
-                        <li>Git</li>
-                    </ul>
+                <div class="social">
+                    <a href="https://github.com/"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/ig_shivansh29/"  ><i class='bx bxl-instagram'></i></a>
+                    
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Projects Section -->
-    <section class="projects" id="projects">
-        <div class="max-width">
-            <h2 class="title">My Projects</h2>
-            <div class="carousel owl-carousel">
-                <div class="card">
-                    <div class="box">
-                        <img src="FoodFire.png" alt="Food Fire App">
-                        <p>FoodFire App using React.js</p>
-                        <p>React.js, Parcel.js</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="box">
-                        <img src="ReactJsUserDashboardPanel.png" alt="User Dashboard Panel">
-                        <p>User Dashboard Panel</p>
-                        <p>React.js, Material-UI</p>
-                    </div>
-                </div>
-                <!-- Add more project cards here -->
-            </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="max-width">
-            <h2 class="title">Contact Me</h2>
-            <div class="contact-content">
-                <div class="column left">
-                    <p>Feel free to contact me for any work or suggestions below.</p>
-                    <div class="icons">
-                        <div class="row">
-                            <i class="fas fa-user"></i>
-                            <div class="info">
-                                <div class="head">Name</div>
-                                <div class="sub-title">Shivanshu Soni</div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <i class="fas fa-envelope"></i>
-                            <div class="info">
-                                <div class="head">Email</div>
-                                <div class="sub-title">your.email@gmail.com</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="column right">
-                    <div class="text">Message me</div>
-                    <form action="contact.php" method="POST">
-                        <div class="fields">
-                            <div class="field name">
-                                <input type="text" name="name" placeholder="Name" required>
-                            </div>
-                            <div class="field email">
-                                <input type="email" name="email" placeholder="Email" required>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <input type="text" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="field textarea">
-                            <textarea name="message" cols="30" rows="10" placeholder="Message.." required></textarea>
-                        </div>
-                        <div class="button">
-                            <button type="submit">Send Message</button>
-                        </div>
-                    </form>
-                </div>
+    <br><br><br><br>
+
+
+
+
+
+    
+        <div id="projects" class="projects">
+            <h2>My Projects: </h2><br>
+            <div class="project-card">
+                <u><h3>Project 1: </h3></u><br>
+                <a href="//shivanshusoni29.github.io/Project/">
+                    <img src="logo.webp" alt="Project 1">
+                  </a>
+
+                <b>
+                    <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   A shopping website, also known as an online retail or e-commerce website, is an online platform that allows customers to browse, search for, and purchase a wide range of products or services directly over the internet. These websites serve as virtual storefronts where businesses and vendors can showcase their products, and customers can explore, select, and buy items from the comfort of their own homes.</p>
+                </b>
+                
             </div>
-        </div>
-    </section>
+    <br><br>
+
+    
 </body>
+
 </html>
