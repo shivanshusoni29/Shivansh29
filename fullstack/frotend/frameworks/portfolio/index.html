@@ -1,1004 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Shivanshu Soni Portfolio</title>
-      <link rel="stylesheet" href="style.css">
-      <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivanshu Soni Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+   <style>
+    /* Reset some default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+        background: #333;
+        color: #fff;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+    }
+
+    .navbar .max-width {
+        max-width: 1200px;
+        padding: 0 20px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+    }
+
+    .navbar .logo {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .navbar .menu {
+        list-style: none;
+        display: flex;
+    }
+
+    .navbar .menu li {
+        margin: 0 20px;
+    }
+
+    .navbar .menu li a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    .navbar .menu-btn i {
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        display: none;
+    }
+
+    /* Home Section */
+    .home {
+        background: url('background.jpg') no-repeat center;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    .home-content {
+        text-align: center;
+    }
+
+    .home h1 {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .home h1 span {
+        color: #3498db;
+    }
+
+    .home .subtitle {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+    .home .btn {
+        display: inline-block;
+        background: #3498db;
+        color: #fff;
+        padding: 10px 30px;
+        margin-top: 20px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    /* About Section */
+    .about {
+        padding: 80px 0;
+    }
+
+    .about .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .about-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .about .left img {
+        width: 100%;
+    }
+
+    .about .right {
+        flex: 1;
+        margin-left: 30px;
+    }
+
+    .about h3 {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .about .subtitle {
+        font-size: 20px;
+        margin: 20px 0;
+    }
+
+    .about p {
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .about .btn {
+        display: inline-block;
+        background: #3498db;
+        color: #fff;
+        padding: 10px 30px;
+        margin-top: 20px;
+        text-decoration: none;
+        border-radius: 4px;
+    }
+
+    /* Skills Section */
+    .skills {
+        padding: 80px 0;
+    }
+
+    .skills .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .skills-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .skills .column {
+        flex: 1;
+        margin-right: 30px;
+    }
+
+    .skills h3 {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .skills ul {
+        list-style: none;
+    }
+
+    .skills ul li {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    /* Projects Section */
+    .projects {
+        padding: 80px 0;
+    }
+
+    .projects .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .carousel {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        flex: 1;
+        margin-right: 20px;
+    }
+
+    .card .box {
+        position: relative;
+    }
+
+    .card img {
+        width: 100%;
+    }
+
+    .card p {
+        position: absolute;
+        bottom: 0;
+        background: #3498db;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 80px 0;
+    }
+
+    .contact .title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .contact-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .contact .column {
+        flex: 1;
+        margin-right: 30px;
+    }
+
+    .contact .left {
+        position: relative;
+    }
+
+    .contact .left .icons {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .contact .left .row {
+        align-items: center;
+        margin: 20px 0;
+    }
+
+    .contact .left i {
+        font-size: 24px;
+        background: #3498db;
+        color: #fff;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .contact .left .info {
+        margin-left: 20px;
+    }
+
+    .contact .left .head {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .contact .left .sub-title {
+        font-size: 16px;
+        color: #777;
+    }
+
+    .contact .right {
+        flex: 1;
+    }
+
+    .contact .right .text {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .contact .right form {
+        background: #f4f7fb;
+        overflow: hidden;
+        padding: 20px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px #ccc;
+    }
+
+    .contact .right .fields {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .contact .right .fields .field {
+        flex: 1;
+        margin-bottom: 10px;
+    }
 
 
-      <style>
-         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+   </style>
 
-/* CSS * Selector, Select all elements */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  text-decoration: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-/* Navbar Styling*/
-.navbar {
-  position: fixed;
-  width: 100%;
-  padding: 10px 0;
-  z-index: 999;
-  font-family: "Ubuntu", sans-serif;
-  transition: all 0.3s ease;
-}
-.navbar.sticky {
-  padding: 2px 0;
-  background-color: crimson;
-}
-.max-width {
-  max-width: 1300px;
-  padding: 0 80px;
-  margin: auto;
-}
-.navbar .max-width {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.navbar .logo a {
-  font-size: 30px;
-  font-weight: 500;
-  color: #fff;
-  font-family: "Pacifico";
-  transition: all 0.3s ease;
-}
-
-.navbar .logo a span {
-  color: crimson;
-}
-.navbar.sticky .logo a span {
-  color: white;
-}
-.navbar.sticky .logo a:hover,
-.navbar.sticky .logo a span:hover {
-  color: black;
-}
-.navbar .menu li {
-  list-style: none;
-  display: inline-block;
-}
-.navbar .menu li a {
-  display: block;
-  font-size: 18px;
-  font-weight: 500;
-  margin-left: 25px;
-  color: #fff;
-  transition: color 0.3s ease;
-}
-.navbar .menu li a:hover {
-  color: crimson;
-}
-.navbar.sticky .menu li a:hover {
-  color: #000;
-}
-
-/* Menu Button Styling */
-.menu-btn {
-  color: white;
-  font-size: 23px;
-  cursor: pointer;
-  display: none;
-}
-
-/* Scroll button styling */
-.scroll-up-btn {
-  position: fixed;
-  height: 50px;
-  width: 47px;
-  background: crimson;
-  right: 30px;
-  bottom: 10px;
-  text-align: center;
-  line-height: 50px;
-  color: #fff;
-  z-index: 999;
-  font-size: 30px;
-  border-radius: 6px;
-  cursor: pointer;
-  opacity: 0;
-  pointer-events: none;
-  transition: all 0.3s ease;
-}
-.scroll-up-btn.show {
-  opacity: 1;
-  pointer-events: auto;
-  bottom: 30px;
-}
-
-/* Fade In & Fade Out Elements on Scroll Start */
-.fadein {
-  opacity: 0.5;
-}
-.showme {
-  transition: opacity 0.1s ease;
-  opacity: 1 !important;
-}
-
-/* Home Section Styling */
-.home {
-  display: flex;
-  background: url(images/bannernew.jpg) no-repeat center;
-  height: 100vh;
-  background-size: cover;
-  background-attachment: fixed;
-  color: white;
-  min-height: 500px;
-  font-family: "Ubuntu", sans-serif;
-}
-.home .max-width {
-  margin: auto 0 auto 40px;
-}
-.home .home-content .text-1 {
-  font-size: 27px;
-}
-.home .home-content .text-2 {
-  font-size: 75px;
-  font-weight: 600;
-  margin-left: -3px;
-}
-.home .home-content .text-3 {
-  font-size: 40px;
-  margin: 5px 0;
-}
-.home .home-content .text-3 span {
-  font-weight: 500;
-  color: crimson;
-}
-.home .home-content a {
-  display: inline-block;
-  background: crimson;
-  color: #fff;
-  font-size: 25px;
-  padding: 8px 20px;
-  margin-top: 20px;
-  border-radius: 6px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.home .home-content .web {
-  margin-right: 25px;
-}
-
-.home .home-content a:hover {
-  color: white;
-  background: #000;
-}
-
-/* all similar content styling code */
-section {
-  padding: 100px 0;
-}
-.about,
-.skills,
-.projects,
-.contact,
-footer {
-  font-family: "Poppins", sans-serif;
-}
-.about .about-content,
-.skills .skills-content,
-.contact .contact-content {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-section .title {
-  position: relative;
-  text-align: center;
-  font-size: 40px;
-  font-weight: 500;
-  margin-bottom: 60px;
-  padding-bottom: 20px;
-  font-family: "Ubuntu", sans-serif;
-}
-section .title::before {
-  content: "";
-  position: absolute;
-  bottom: 0px;
-  left: 50%;
-  width: 180px;
-  height: 3px;
-  background: #111;
-  transform: translateX(-50%);
-}
-section .title::after {
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  padding: 5px;
-  font-size: 20px;
-  color: crimson;
-  background: #fff;
-  transform: translateX(-50%);
-}
-
-.skills,
-.contact {
-  background: #111;
-  color: #fff;
-}
-.skills .title::before,
-.contact .title::before {
-  background: #fff;
-}
-
-/* about section styling */
-.about .title::after {
-  content: "who am i";
-}
-
-.about .about-content .left {
-  width: 45%;
-}
-.about .about-content .left img {
-  height: 400px;
-  width: 400px;
-  object-fit: cover;
-  border-radius: 40px 0px 40px 0px;
-}
-.about .about-content .right {
-  width: 55%;
-}
-.about .about-content .right .text {
-  font-size: 25px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-.about .about-content .right .text span {
-  color: crimson;
-}
-.about .about-content .right p {
-  text-align: justify;
-  line-height: 1.6;
-  letter-spacing: 1px;
-}
-.about .about-content .right a {
-  display: inline-block;
-  background: crimson;
-  color: #fff;
-  font-size: 25px;
-  font-weight: 500;
-  padding: 3px 25px;
-  margin-top: 20px;
-  border-radius: 6px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.about .about-content .right a:hover {
-  color: crimson;
-  background: none;
-}
-
-/* Social media section styling */
-.button1 {
-  float: left;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
-  background: #fff;
-  overflow: hidden;
-  border-radius: 35px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
-}
-.button1 .icon {
-  width: 45px;
-  height: 45px;
-  text-align: center;
-  border-radius: 35px;
-  display: inline-block;
-  transition: all 0.3s ease-in-out;
-}
-
-.button1 .icon i {
-  font-size: 18px;
-  line-height: 45px;
-  color: crimson;
-  transition: all 0.3s ease-in-out;
-}
-.button1:hover {
-  width: 150px;
-}
-.button1:hover i {
-  color: #fff;
-}
-.button1 span {
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 10px;
-  margin-left: 5px;
-}
-
-.button1:nth-child(1):hover .icon {
-  background: #e1306c;
-}
-
-.button1:nth-child(2):hover .icon {
-  background: #4267b2;
-}
-
-.button1:nth-child(3):hover .icon {
-  background: #1da1f2;
-}
-
-.button1:nth-child(4):hover .icon {
-  background: #1da1f2;
-}
-
-.button1:nth-child(5):hover .icon {
-  background: #1da1f2;
-}
-
-.button1:nth-child(6):hover .icon {
-  background: #333;
-}
-.button1:nth-child(7):hover .icon {
-  background: #1da1f2;
-}
-.button1:nth-child(1) span a {
-  color: #e1306c;
-}
-
-.button1:nth-child(2) span a {
-  color: #4267b2;
-}
-
-.button1:nth-child(3) span a {
-  color: #1da1f2;
-}
-
-.button1:nth-child(4) span a {
-  color: #1da1f2;
-}
-
-.button1:nth-child(5) span a {
-  color: #1da1f2;
-}
-
-.button1:nth-child(6) span a {
-  color: #333;
-}
-.button1:nth-child(7) span a {
-  color: #1da1f2;
-}
-
-/* skills section styling */
-.skills .title::after {
-  background: #111;
-  content: "what i know";
-}
-.skills .skills-content .column {
-  width: calc(50% - 30px);
-}
-.skills .skills-content .left .text {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 10px;
-}
-.skills .skills-content .left p {
-  text-align: justify;
-  line-height: 1.6;
-  letter-spacing: 1px;
-}
-.skills .skills-content .left a {
-  display: inline-block;
-  background: crimson;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 8px 16px;
-  margin-top: 20px;
-  border-radius: 6px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.skills .skills-content .left a:hover {
-  color: crimson;
-  background: none;
-}
-.skills .skills-content .right .info {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-.skills .skills-content .right .info img {
-  padding: 0 10px;
-}
-
-/* Project section styling */
-.projects .title::after {
-  content: "check my work";
-}
-.projects .carousel .card {
-  background: #222;
-  border-radius: 10px;
-  padding: 25px 20px;
-  text-align: center;
-  transition: all 0.3s ease;
-}
-.projects .carousel .card:hover {
-  background: rgb(48, 48, 48);
-}
-.projects .carousel .card .box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-.projects .carousel .card:hover .box {
-  transform: scale(1.02);
-}
-
-.projects .carousel .card p {
-  font-size: 16px;
-  padding-top: 10px;
-  color: #fff;
-}
-.projects .carousel .card img {
-  height: 250px;
-  width: 280px;
-  object-fit: fill;
-  border-radius: 10px;
-  border: 2px solid crimson;
-  transition: all 0.3s ease;
-}
-.projects .carousel .card:hover img {
-  border-color: #fff;
-}
-.owl-dots {
-  text-align: center;
-  margin-top: 20px;
-}
-.owl-dot {
-  height: 13px;
-  width: 13px;
-  margin: 0 5px;
-  outline: none !important;
-  border-radius: 50%;
-  border: 2px solid crimson !important;
-  transition: all 0.3s ease;
-}
-.owl-dot.active {
-  width: 35px;
-  border-radius: 14px;
-}
-.owl-dot.active,
-.owl-dot:hover {
-  background: crimson !important;
-}
-
-/* contact section styling */
-.contact .title::after {
-  background: #111;
-  content: "get in touch";
-}
-.contact .contact-content .column {
-  width: calc(50% - 30px);
-}
-.contact .left .text {
-  margin-top: 20px;
-}
-.contact .contact-content .left .text {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.contact .contact-content .left p {
-  text-align: justify;
-}
-.contact .contact-content .left .text1 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-.contact .contact-content .left .icons {
-  margin: 10px 0;
-}
-.contact .contact-content .row {
-  display: flex;
-  height: 65px;
-  align-items: center;
-}
-.contact .contact-content .row i {
-  font-size: 25px;
-  color: crimson;
-}
-.contact .contact-content .row .email-icon {
-  margin-left: -7px;
-}
-.contact .contact-content .row .info {
-  margin-left: 30px;
-  justify-content: left;
-  float: left;
-}
-.contact .contact-content .info .head {
-  font-weight: 600;
-}
-.contact .contact-content .info .sub-title {
-  color: #fff;
-}
-.contact .right .text {
-  padding-bottom: 10px;
-  font-weight: 600;
-}
-.contact .right form .fields {
-  display: flex;
-}
-.contact .right form .fields,
-.contact .right form .field {
-  height: 45px;
-  width: 100%;
-  margin-bottom: 15px;
-}
-.contact .right form .name {
-  margin-right: 10px;
-}
-.contact .right form .email {
-  margin-left: 10px;
-}
-.contact .right form .textarea {
-  height: 160px;
-  width: 100%;
-}
-.contact .right form .field input,
-.contact .right form .textarea textarea {
-  height: 100%;
-  width: 100%;
-  border: 1px solid lightgrey;
-  border-radius: 6px;
-  outline: none;
-  padding: 0 15px;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-}
-.contact .right form .textarea textarea {
-  padding-top: 10px;
-}
-.contact .right form .button {
-  height: 47px;
-  width: 220px;
-}
-.contact .right form .button button {
-  height: 100%;
-  width: 100%;
-  border: 2px solid crimson;
-  background: crimson;
-  color: #fff;
-  font-size: 22px;
-  font-weight: 500;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-.contact .right form .button button:hover {
-  color: #fff;
-  background: none;
-}
-
-/* footer section styling */
-footer {
-  background: #fff;
-  padding: 20px 23px;
-  color: #000;
-  text-align: center;
-}
-footer span a {
-  color: crimson;
-  text-decoration: none;
-}
-footer span a:hover {
-  text-decoration: underline;
-}
-
-/* responsive media query start */
-@media (max-width: 1300px) {
-  .home .max-width {
-    margin-left: 0px;
-  }
-}
-
-@media (max-width: 1104px) {
-  .about .about-content .left img {
-    height: 350px;
-    width: 350px;
-  }
-}
-
-@media (max-width: 991px) {
-  .max-width {
-    padding: 0 50px;
-  }
-}
-
-@media (max-width: 947px) {
-  .max-width {
-    padding: 0 50px;
-  }
-  .menu-btn {
-    display: block;
-    z-index: 999;
-  }
-  .menu-btn i.active:before {
-    content: "\f00d";
-  }
-  .navbar .menu {
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    left: -100%;
-    top: 0;
-    background: #111;
-    text-align: center;
-    padding-top: 40px;
-    transition: all 0.3s ease;
-  }
-  .navbar .menu.active {
-    left: 0;
-  }
-  .navbar .menu li {
-    display: block;
-  }
-  .navbar .menu li a {
-    display: inline-block;
-    margin: 20px 0;
-    font-size: 25px;
-  }
-  .home .home-content .text-2 {
-    font-size: 72px;
-  }
-  .home .home-content .text-3 {
-    font-size: 35px;
-  }
-  .home .home-content a {
-    font-size: 22px;
-    padding: 6px 24px;
-  }
-  .max-width {
-    max-width: 800px;
-  }
-  .about .about-content .column {
-    width: 100%;
-  }
-
-  .about .about-content .left .wrapper {
-    margin: 0 auto 10px;
-  }
-  .about .about-content .right {
-    flex: 100%;
-    margin-top: 30px;
-  }
-
-  .skills .skills-content .column,
-  .contact .contact-content .column {
-    width: 100%;
-    margin-bottom: 35px;
-  }
-  .contact .left .text {
-    margin-top: 0px;
-  }
-}
-
-@media (max-width: 690px) {
-  .max-width {
-    padding: 0 23px;
-  }
-  .home .home-content .text-2 {
-    font-size: 60px;
-  }
-  .home .home-content .text-3 {
-    font-size: 32px;
-  }
-  .home .home-content a {
-    font-size: 20px;
-  }
-}
-
-@media (max-width: 540px) {
-  .about .about-content .right .text .break {
-    display: block;
-  }
-}
-
-@media (max-width: 500px) {
-  .max-width {
-    padding: 0 23px;
-  }
-  .home .home-content .text-2 {
-    font-size: 50px;
-  }
-  .home .home-content .text-3 {
-    font-size: 27px;
-  }
-  .projects .carousel .card {
-    margin-top: 10px;
-    padding: 10px 15px;
-  }
-  .projects .carousel .card img {
-    height: 180px;
-    width: 200px;
-  }
-}
-
-@media (max-width: 380px) {
-  .about .about-content .left img {
-    height: 250px;
-    width: 250px;
-  }
-}
-
-      </style>
-   </head>
-   <body>
-      <!-- Scroll Button start -->
-      <div class="scroll-up-btn">
-         <i class="fas fa-angle-double-up"></i>
-      </div>
-      <!-- Scroll Button end -->
-      <!-- Navbar Start-->
-      <nav class="navbar">
-         <div class="max-width">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="max-width">
             <div class="logo">
-               <a href="#">Portfo<span>lio.</span>
-               </a>
+                <a href="#">Portfolio</a>
             </div>
             <ul class="menu">
-               <li>
-                  <a href="#home" class="menu-btn">Home</a>
-               </li>
-               <li>
-                  <a href="#about" class="menu-btn">About</a>
-               </li>
-               <li>
-                  <a href="#skills" class="menu-btn">Skills</a>
-               </li>
-               <li>
-                  <a href="#projects" class="menu-btn">Projects</a>
-               </li>
-               <li>
-                  <a href="#contact" class="menu-btn">Contact</a>
-               </li>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-btn">
-               <i class="fas fa-bars"></i>
+                <i class="fas fa-bars"></i>
             </div>
-         </div>
-      </nav>
-      <!-- Navbar End -->
-      <!-- Home Section Start -->
-      <section class="home" id="home">
-         <div class="max-width">
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section class="home" id="home">
+        <div class="max-width">
             <div class="home-content">
-               <div class="text-1">Hello 👋 I'm Shivanshu Soni</div>
-               <div class="text-2"></div>
-               <div class="text-3">I'm Frontend developer<span class="typing"></span>
-               </div>
-               <a class="web" href="#contact">I need a website <i class="fad fa-angle-right"></i>
-               </a>
+                <h1>Hello <span>👋</span>, I'm Shivanshu Soni</h1>
+                <p class="subtitle">Frontend Developer</p>
+                <a href="#contact" class="btn">Contact Me</a>
             </div>
-         </div>
-      </section>
-      <!-- Home Section End -->
-      <!-- About section start -->
-      <section class="about" id="about">
-         <div class="max-width">
-            <h2 class="title fadein">About me</h2>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">About Me</h2>
             <div class="about-content">
-               <div class="column left">
-                  <img src="./images/Shivanshu Soni.jpg" alt="Shivanshu Soni">
-                  <div>
-                     <div class="wrapper">
-                        <div class="button1">
-                           <div class="icon">
-                              <a href="https://www.linkedin.com/in/chetannada" target="_blank">
-                              <i class="fab fa-linkedin"></i>
-                           </div>
-                           <span>LinkedIn </a>
-                           </span>
-                        </div>
-                        <div class="buttonmob">
-                           <div class="button1">
-                              <div class="icon">
-                                 <a href="https://twitter.com/chetannada" target="_blank">
-                                 <i class="fab fa-twitter"></i>
-                              </div>
-                              <span>Twitter </a>
-                              </span>
-                           </div>
-                        </div>
-                        <div class="buttonmob1"></div>
-                        <div class="button1">
-                           <div class="icon">
-                              <a href="https://github.com/shivanshusoni29/Shivansh29" target="_blank">
-                              <i class="fab fa-github"></i>
-                           </div>
-                           <span>Github </a>
-                           </span>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="column right">
-                  <div class="text">I'm a Shivanshu and <span class="break">I'm a <span class="typing2"></span>
-                     </span>
-                  </div>
-                  <p>I'm Self-taught React.js Developer. My goal is to build a fast, flexible, mobile-first website that clearly communicates with visitors. I have done B.E in E&C. I have also experience in network engineer.</p>
-                  </a>
-               </div>
+                <div class="left">
+                    <img src="./Shivanshu Soni.jpg" alt="Shivanshu Soni">
+                </div>
+                <div class="right">
+                    <h3>Hi, I'm Shivanshu Soni</h3>
+                    <p class="subtitle">Self-taught React.js Developer</p>
+                    <p>
+                        I'm a passionate self-taught React.js developer with a goal to build responsive and user-friendly websites.
+                    </p>
+                    <a href="#contact" class="btn">Contact Me</a>
+                </div>
             </div>
-         </div>
-      </section>
-      <!-- about section End -->
-      <!-- Skills section start -->
-      <section class="skills" id="skills">
-         <div class="max-width">
-            <h2 class="title fadein">My skills</h2>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="max-width">
+            <h2 class="title">My Skills</h2>
             <div class="skills-content">
-               <div class="column left">
-                  <div class="text">My creative skills & experiences</div>
-                  <p>I am a React Js Developer with a passion for learning and can work with estimation of future tasks and client feedback. I am highly-motivated, result oriented, self-driven, hard-working, fast learner and constantly seeking to improve my skills and am fully aware of the latest Front-end Development Tools. I have a firm knowledge of JavaScript and React Js, Parcel js, Node js, Redux, HTML5, CSS3, Git, SASS, Tailwind CSS, Bootstrap, REST API, JSON, Axios, Adobe Photoshop and possess a good knowledge of computer software packages (frameworks and tools) that are used in today’s technology.</p>
-                  <a href="#projects">Read more <i class="fas fa-angle-double-right"></i>
-                  </a>
-               </div>
-               <div class="column right">
-                  <div class="info">
-                     <a href="https://reactjs.org/" target="_blank">
-                     <img src="./images/react.png" alt="react" width="80" height="80" />
-                     </a>
-                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-                     <img src="./images/javascript.png" alt="javascript" width="80" height="80" />
-                     </a>
-                     <a href="https://www.typescriptlang.org/" target="_blank">
-                     <img src="./images/typescript.png" alt="TypeScript" width="80" height="80" />
-                     </a>
-                     
-                    
-                     
-                     <a href="https://www.w3.org/html/" target="_blank">
-                     <img src="./images/html5.png" alt="html5" width="80" height="80" />
-                     </a>
-                     <a href="https://www.w3schools.com/css/" target="_blank">
-                     <img src="./images/css3.png" alt="css3" width="80" height="80" />
-                     </a>
-                     <a href="https://getbootstrap.com" target="_blank" rel="noreferrer">
-                     <img src="./images/bootstrap.png" alt="bootstrap" width="80" height="80" />
-                     </a>
-                     
-                     
-                    
-                     <a href="https://git-scm.com/" target="_blank" rel="noreferrer">
-                     <img src="./images/git.png" alt="git" width="80" height="80" />
-                     </a>
-                  </div>
-               </div>
+                <div class="column">
+                    <h3>Creative Skills & Experiences</h3>
+                    <p>
+                        I specialize in React.js development and have experience with various web development technologies.
+                    </p>
+                </div>
+                <div class="column">
+                    <h3>Skills Set</h3>
+                    <ul>
+                        <li>React.js</li>
+                        <li>JavaScript</li>
+                        <li>HTML5 & CSS3</li>
+                        <li>Bootstrap</li>
+                        <li>Git</li>
+                    </ul>
+                </div>
             </div>
-         </div>
-      </section>
-      <!-- Skills section end -->
-      <!-- Project section start -->
-      <section class="projects" id="projects">
-         <div class="max-width">
-            <h2 class="title fadein">My Projects</h2>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="max-width">
+            <h2 class="title">My Projects</h2>
             <div class="carousel owl-carousel">
-               <div class="card">
-                  <a href="../" target="_blank">
-                     <div class="box">
-                        <img src="./images/Food Fire.png" alt="Food Fire App">
+                <div class="card">
+                    <div class="box">
+                        <img src="FoodFire.png" alt="Food Fire App">
                         <p>FoodFire App using React.js</p>
                         <p>React.js, Parcel.js</p>
-                     </div>
-                  </a>
-               </div>
-               <div class="card">
-                  <a href="../" target="_blank">
-                     <div class="box">
-                        <img src="./images/ReactJs User Dashboard Panel.png" alt="ReactJs User Dashboard Panel">
-                        <p>ReactJs User Dashboard Panel</p>
-                        <p>React.js, Webpack, MUI</p>
-                     </div>
-                  </a>
-               </div>
-               <div class="card">
-                  <a href="https://shivanshusoni29.github.io/Shivansh29/fullstack/frotend/index.html" target="_blank">
-                     <div class="box">
-                        <img src="./images/Avatar API.jpg" alt="Avatar API">
-                        <p>Avatar of Developers</p>
-                        <p>React.js, Webpack</p>
-                     </div>
-                  </a>
-               </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <img src="ReactJsUserDashboardPanel.png" alt="User Dashboard Panel">
+                        <p>User Dashboard Panel</p>
+                        <p>React.js, Material-UI</p>
+                    </div>
+                </div>
+                <!-- Add more project cards here -->
             </div>
-         </div>
-      </section>
-      <!-- Project section end -->
-      <!-- Contact section start -->
-      <section class="contact" id="contact">
-         <div class="max-width">
-            <h2 class="title fadein">Contact me</h2>
-            <div class="contact-content">
-               <div class="column left">
-                  <div class="text">Reach Out to me!</div>
-                  <p>Discuss a Project or just want to say Hi? My inbox is open for all.</p>
-                  <div class="icons">
-                     <div class="row">
-                        <i class="fas fa-user"></i>
-                        <div class="info">
-                           <div class="head">Name</div>
-                           <div class="sub-title">Shivanshu Soni </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div class="info">
-                           <div class="head">Address</div>
-                           <div class="sub-title">Mahoba, Uttar Pradesh</div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <i class="fas fa-envelope email-icon"></i>
-                        <div class="info">
-                           <div class="head">Email</div>
-                           <div class="sub-title">shivanssoni01@gmail.com</div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="text1">Stay Connected</div>
+        </div>
+    </section>
 
-      
-               <div class="column right">
-                  <div class="text">Message me</div>
-                  <form action="#">
-                     <div class="fields">
-                        <div class="field name">
-                           <input type="text" placeholder="Name" required>
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="max-width">
+            <h2 class="title">Contact Me</h2>
+            <div class="contact-content">
+                <div class="column left">
+                    <p>Feel free to contact me for any work or suggestions below.</p>
+                    <div class="icons">
+                        <div class="row">
+                            <i class="fas fa-user"></i>
+                            <div class="info">
+                                <div class="head">Name</div>
+                                <div class="sub-title">Shivanshu Soni</div>
+                            </div>
                         </div>
-                        <div class="field email">
-                           <input type="email" placeholder="Email" name="email" required>
+                        <div class="row">
+                            <i class="fas fa-envelope"></i>
+                            <div class="info">
+                                <div class="head">Email</div>
+                                <div class="sub-title">your.email@gmail.com</div>
+                            </div>
                         </div>
-                     </div>
-                     <div class="field">
-                        <input type="text" placeholder="Subject" required>
-                     </div>
-                     <div class="field textarea">
-                        <textarea cols="30" rows="10" placeholder="Describe Project..." required></textarea>
-                     </div>
-                     <div class="button">
-                        <button type="submit">Send Message <i class="fas fa-paper-plane"></i>
-                        </button>
-                     </div>
-                  </form>
-               </div>
+                    </div>
+                </div>
+                <div class="column right">
+                    <div class="text">Message me</div>
+                    <form action="contact.php" method="POST">
+                        <div class="fields">
+                            <div class="field name">
+                                <input type="text" name="name" placeholder="Name" required>
+                            </div>
+                            <div class="field email">
+                                <input type="email" name="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="field textarea">
+                            <textarea name="message" cols="30" rows="10" placeholder="Message.." required></textarea>
+                        </div>
+                        <div class="button">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-         </div>
-      </section>
-      <!-- Contact section end -->
-      <!-- footer section start -->
-      <footer>
-         <span>Created By <a href="https://www.linkedin.com/in/chetannada/" target="_blank">Shivanshu Soni</a> | <span class="far fa-copyright"></span> 2023 All rights reserved </span>
-      </footer>
-      <!-- footer section end -->
-      <!-- External Javascript File start-->
-      <script src="script.js" async></script>
-      <!-- External Javascript File end-->
-   </body>
+        </div>
+    </section>
+</body>
 </html>

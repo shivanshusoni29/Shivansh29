@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Input Example</title>
+</head>
+
+<body>
+    <center>
+        <div id="root">
+            <u><h1>Custom</h1></u>
+            <p>Shivanshu:</p>
+            <label for="">Name</label>
+            <br>
+            <input type="Name" id="abc" value="">
+            <br>
+
+            <label for="">email</label>
+            <br>
+            <input type="email" id="abc" value="">
+            <br>
+            <label for="">Password</label>
+            <br>
+            <input type="Password" id="abc" value="">
+            <br>
+            <label for="">Contact</label>
+            <br>
+            <input type="Contact" id="abc" value="">
+            <br>
+            <br>
+            <button onclick="capture()">submit</button>
+            <p id="output"></p>
+        </div>
+    </center>
+
+    <script>
+        function capture() {
+            let data1 = document.getElementById('abc').value;
+            let output = document.getElementById('output');
+            
+            if (data1.trim() === '') {
+                output.textContent = 'Shivanshu';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+            if (data1.trim() === '') {
+                output.textContent = 'shiv01@gmail.com';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+            if (data1.trim() === '') {
+                output.textContent = 'shiva';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+           
+        }
+    </script>
+</body>
+
+</html>
