@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .product {
+            margin: 20px;
+            padding: 20px;
+            border: 3px solid #c31d1d;
+            text-align: center;
+        }
+
+        body{
+            background-color: hsl(60, 5%, 8%);
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-size: cover; /* This will make the image cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+        }
+        
+        </style>
+</head>
+<body>
+<div id="root">
+
+
+</div>
+
+
+<script>
+let title="bag"
+let price="800"
+let discription="light weight for college bags"
+
+let title1="Bracelet"
+let price1="10000"
+let discription1="latest bracelet"
+
+let title2="Sneaker"
+let price2="10000"
+let discription2="comfortable shoe"
+
+let title3="Ring"
+let prise3="10000"
+let discription3="very nice Rings"
+
+
+
+let item1={
+    title:"bag",
+    price:"800",
+    discription:"just try this bag",
+    img:'https://5.imimg.com/data5/SELLER/Default/2022/3/XW/KK/XB/148030461/small-20-l-backpack-stylish-backpack-for-girls-black--500x500.jpg'
+}
+
+let item2={
+    title:"Bracelet",
+    price:"10000",
+    discription:"Its good bangals",
+    img:'https://silverpalace.in/uploads/products/613c4918b2a3a_1.jpg'
+}
+
+let item3={
+    title:"Sneaker",
+    price:"10000",
+    discription:"Comfortable shoe",
+    img:'https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/99486859-0ff3-46b4-949b-2d16af2ad421/custom-nike-dunk-high-by-you-shoes.png'
+}
+
+let item4={
+    title:"T-shirt",
+    price:"10000",
+    discription:"looking good this t-shrt",
+    img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7nNHPYLGvyZLYVPjy81XDI3jCapT2Mp3mLQ&usqp=CAU'
+}
+
+let item5={
+    title:"jacket",
+    price:"10000",
+    discription:"good jacket",
+    img:'https://m.media-amazon.com/images/I/71j8bZXVolL._AC_SY500_.jpg'
+}
+
+
+
+let list=[item1,item2,item3,item4,item5]
+let data=document.getElementById('root')
+
+list.map((item)=>{
+
+    let img=document.createElement('img')
+img.style.height="300px"
+img.src=item.img
+data.appendChild(img)
+
+})
+
+</script>
+
+
+
+</body>
+</html>

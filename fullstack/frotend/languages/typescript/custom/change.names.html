@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Input Example</title>
+    <style>
+        body {
+            background-image: url(./11.jpg); /* Replace 'background.jpg' with your image file's path */
+            background-size: cover; /* This will make the image cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+        }
+        button{
+            background-color:aqua;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;}
+
+            button:hover{
+            background-color: rgb(12, 44, 253);
+        }
+    </style>
+    
+
+</head>
+
+<body>
+    <center>
+        <div id="root">
+            <u><h1>Custom</h1></u>
+            <p>: Shivanshu Soni :</p>
+           <b> <label for="">Name</label>
+            <br>
+            <input type="Name" id="abc" value="">
+        </b>
+            <br>
+
+           <b>
+            <label for="">email</label>
+            <br>
+            <input type="email" id="abc" value="">
+           </b>
+            <br>
+
+            <b>
+            <label for="">Password</label>
+            <br>
+            <input type="Password" id="abc" value="">
+            </b>
+            <br>
+
+           <b>
+            <label for="">Contact</label>
+            <br>
+            <input type="Contact" id="abc" value="">
+           </b>
+            <br>
+            <br>
+            <big><b><button onclick="capture()">submit</button></b></big>
+            <p id="output"></p>
+        </div>
+    </center>
+
+    <script>
+        function capture() {
+            let data1 = document.getElementById('abc').value;
+            let output = document.getElementById('output');
+            
+            if (data1.trim() === '') {
+                output.textContent = 'Shivanshu';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+            if (data1.trim() === '') {
+                output.textContent = 'shiv01@gmail.com';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+            if (data1.trim() === '') {
+                output.textContent = 'shiva';
+            } else {
+                output.textContent = `Hello, ${data1}!`;
+            }
+
+           
+        }
+    </script>
+</body>
+
+</html>
