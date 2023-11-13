@@ -11,23 +11,51 @@
             align-items: center;
             height: 100vh;                                               
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #161214;
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+
+        }
+        input#display {
+        font-size: 1em; /* Adjust the font size */
+        color: #a32222; /* Text color for the display */
+        background-color: #ecf0f1; /* Background color for the display */
+        border: 1px solid #bdc3c7; /* Border color for the display */
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
         }
 
         .calculator {
-            border: 1px solid #ddd;
+            border: 2px solid #f37724;
             padding: 20px;
-            background-color: #fff;
+            background-color: #0e0e08;
+            box-shadow: 0 0 15px rgb(255, 0, 4);
         }
 
         button {
             width: 40px;
             height: 40px;
             margin: 5px;
+            background-color: rgb(75, 80, 76); /* Blue color for number buttons */
+            color: #fff; /* White text color for better visibility */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+  
         }
+    
+        
+        
     </style>
 </head>
 <body>
+    
     <div class="calculator">
         
         <input type="text" id="display" readonly>
@@ -106,6 +134,7 @@
         function calculateANS() {
             display.value = eval(display.value);
         }
+        
     </script>
 </body>
 </html>
