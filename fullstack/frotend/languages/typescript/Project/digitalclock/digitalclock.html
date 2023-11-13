@@ -16,13 +16,28 @@
             background-size: cover; /* This will make the image cover the entire viewport */
             background-repeat: no-repeat; /* Prevent the background image from repeating */
         }
+        body::before{
+            content:"";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+            z-index: -1;
+
+        }
 
         h1 {
-            font-size: 3rem;
-            color: #090808;
-            border: 5px solid #f6f6f3;
+            font-size: 1.5rem;
+            color: #e9d7d7;
             padding: 20px;
-            background-color: #f8f1f1;
+            background-color: #121111;
+            box-shadow: 0 0 20px rgba(197, 22, 22, 0.5); /* Shadow for the background color */
+            position: absolute;
+            top: 5.50%; /* Center the element vertically */
+            left: 75%; /* Center the element horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
         }
     </style>
 </head>
