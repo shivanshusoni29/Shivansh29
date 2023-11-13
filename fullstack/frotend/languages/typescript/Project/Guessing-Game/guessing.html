@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(./image.jpeg);
+            background-size: cover; /* This will make the image cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        button:hover{
+            background-color: rgb(253, 12, 32);
+        }
+        
+        button{
+            background-color:aqua;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;}
+    </style>
+</head>
+<body>
+    <center>
+        <bold>
+            <u><big><h1>Ludo</h1></big></u>
+        </bold>
+        <h2 id="root"></h2>
+        <button onclick="caller()">Click</button>
+    </center>
+    <script>
+        function caller(){
+            let h1=document.getElementById('root')
+         h1.innerHTML=Math.floor(Math.random()*6+1)   
+        }
+    </script>
+</body>
+</html>
