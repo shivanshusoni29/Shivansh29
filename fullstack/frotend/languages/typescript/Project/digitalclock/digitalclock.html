@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #0f0e0e;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            margin: 0;
+            background-image: url(./02.avif); /* Replace 'background.jpg' with your image file's path */
+            background-size: cover; /* This will make the image cover the entire viewport */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+        }
+        body::before{
+            content:"";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% transparency */
+            z-index: -1;
+
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: #e9d7d7;
+            padding: 20px;
+            background-color: #121111;
+            box-shadow: 0 0 20px rgba(197, 22, 22, 0.5); /* Shadow for the background color */
+            position: absolute;
+            top: 5.50%; /* Center the element vertically */
+            left: 75%; /* Center the element horizontally */
+            transform: translate(-50%, -50%); /* Adjust for centering */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="root"></h1>
+
+<script>
+var date = new Date();
+var sec = date.getSeconds();
+var minutes = date.getMinutes();
+var hours = date.getHours();
+let h1 = document.getElementById('root');
+
+function pad(num) {
+    return (num < 10 ? '0' : '') + num;
+}
+
+setInterval(() => {
+    console.log(sec);
+    h1.innerHTML = `Hours:${pad(hours)}-Minutes:${pad(minutes)}-Sec:${pad(sec)}`;
+    sec++;
+
+    if (sec == 60) {
+        minutes++;
+        sec = 0;
+    }
+
+    if (minutes == 60) {
+        hours++;
+        minutes = 0;
+    }
+
+    if (hours == 24) {
+        hours = 0;
+    }
+}, 1000)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;                                               
+            margin: 0;
+            background-color: #161214;
+            color: #fff; 
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+
+        }
+        input#display {
+        font-size: 1em; /* Adjust the font size */
+        color: #a32222; /* Text color for the display */
+        background-color: #ecf0f1; /* Background color for the display */
+        border: 1px solid #bdc3c7; /* Border color for the display */
+        border-radius: 5px;
+        padding: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        }
+
+        .calculator {
+            border: 2px solid #f37724;
+            padding: 20px;
+            background-color: #0e0e08;
+            box-shadow: 0 0 15px rgb(255, 0, 4);
+        }
+
+        button {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            background-color: rgb(75, 80, 76); /* Blue color for number buttons */
+            color: #fff; /* White text color for better visibility */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            
+  
+        }
+        
+    
+        
+        
+    </style>
+</head>
+<body>
+    
+    <div class="calculator">
+        
+        <input type="text" id="display" readonly>
+        <br>
+        <button onclick="append('7')">7</button>
+        <button onclick="append('8')">8</button>
+        <button onclick="append('9')">9</button>
+        <button onclick="append('/')">/</button>
+        <br>
+        <button onclick="append('4')">4</button>
+        <button onclick="append('5')">5</button>
+        <button onclick="append('6')">6</button>
+        <button onclick="append('*')">*</button>
+        <br>
+        <button onclick="append('1')">1</button>
+        <button onclick="append('2')">2</button>
+        <button onclick="append('3')">3</button>
+        <button onclick="append('-')">-</button>
+        <br>
+        <button onclick="append('0')">0</button>
+        <button onclick="calculate()">=</button>
+        <button onclick="append('+')">+</button>
+        <br>
+        <button onclick="clearEntry()">CE</button>
+        <button onclick="clearDisplay()">C</button>
+        <button onclick="calculateANS()">ANS</button>
+
+          <!-- Scientific buttons -->
+    <div class="scientific-buttons">
+        <button onclick="calculateSquareRoot()">√</button>
+        <button onclick="append('**')">^</button>
+        <button onclick="calculatePercentage()">%</button>
+        <!-- Add more scientific buttons as needed -->
+    </div>
+        
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let operation = '';
+        let operand1 = 0;
+        let operand2 = NaN;
+
+        function append(value) {
+            display.value += value;
+        }
+
+        function calculate() {
+            operand1 = parseFloat(display.value);
+
+            if (isNaN(operand2)) {
+                operand2 = operand1;
+            } else {
+                switch (operation) {
+                    case '+':
+                        operand2 += operand1;
+                        break;
+                    case '-':
+                        operand2 -= operand1;
+                        break;
+                    case '*':
+                        operand2 *= operand1;
+                        break;
+                    case '/':
+                        operand2 /= operand1;
+                        break;
+                        case '**':
+                    operand2 = Math.pow(operand2, operand1);
+                    break;
+                }
+            }
+
+            display.value = operand2;
+            operation = '';
+        }
+
+        function clearDisplay() {
+            display.value = '';
+            operation = '';
+            operand1 = 0;
+            operand2 = NaN;
+        }
+
+        function clearEntry() {
+            display.value = '';
+        }
+        function calculateANS() {
+            display.value = eval(display.value);
+        }
+        function calculateSquareRoot() {
+        display.value = Math.sqrt(parseFloat(display.value));
+    }
+
+    function calculatePercentage() {
+        display.value = parseFloat(display.value) / 100;
+    }
+    // Add more scientific functions as needed
+        
+    </script>
+</body>
+</html>
