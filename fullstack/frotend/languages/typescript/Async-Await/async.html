@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-image: url(./2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+    </style>
+</head>
+<body>
+    <script>
+        async function arshi(){
+    
+            let arshipromise=new Promise((Shiv,rohan)=>{
+                setTimeout(()=>{
+                    Shiv("She is giving party")
+                    // rohan("She will not give party")
+    
+                },2000)
+            })
+    
+            console.log(await arshipromise)
+        }
+        arshi();
+    </script>
+</body>
+</html>
