@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script>
+       var data= fetch('https://avatars.githubusercontent.com/u/2?v=4')
+            .then(response => response.blob())
+            .then(blob => {
+                let div = document.getElementById('root');
+                let img = document.createElement('img');
+                img.src = URL.createObjectURL(blob);
+                img.style.height = "200px";
+                div.appendChild(img);
+            });
+            apicaller()
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script>
+// for(i=0;i<100;i++){
+//     let div= document.getElementById('root')
+//     let img= document.createElement('img')
+//     img.src='https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+//     img.style.height="200px"
+//     div.appendChild(img)
+// }
+   
+async function apicaller(){
+    var data=fetch('https://api.github.com/users')
+    let mydata=await(await data).json()
+    mydata.map((item)=>{
+        
+        console.log( item.avatar_url)
+        let div= document.getElementById('root')
+    let img= document.createElement('img')      
+    img.src=item.avatar_url
+    img.style.height="200px"
+    div.appendChild(img)
+    })
+
+}
+apicaller()
+    </script>
+</body>
+</html>

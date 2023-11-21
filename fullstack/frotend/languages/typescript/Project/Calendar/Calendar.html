@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful calendar</div>
+        <div class="days" id="calendar-days"</title>
+    <style>
+         body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .calendar {
+            background-image: url(./1.webp);
+            background-size: cover;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .day {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .day:hover {
+            background-color: #f9f9f9;
+        }
+
+        .day.current {
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="calendar">
+        <div class="header">Beautiful calendar</div>
+        <div class="days" id="calendar-days"></div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+</html>
