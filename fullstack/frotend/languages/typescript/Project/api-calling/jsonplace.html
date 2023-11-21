@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+
+
+    <script>
+// for(i=0;i<100;i++){
+//     let div= document.getElementById('root')
+//     let img= document.createElement('img')
+//     img.src='https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
+//     img.style.height="200px"
+//     div.appendChild(img)
+// }
+   
+async function apicaller(){
+    var data=fetch('https://jsonplaceholder.typicode.com/photos')
+    let mydata=await(await data).json()
+    mydata.map((item)=>{
+        
+        console.log( item.url)
+        let div= document.getElementById('root')
+    let img= document.createElement('img')      
+    img.src=item.url
+    img.style.height="200px"
+    div.appendChild(img)
+    })
+
+}
+apicaller()
+    </script>
+</body>
+</html>
